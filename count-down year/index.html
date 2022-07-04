@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>countdown year</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="imgbx"></div>
+    <div class="countdownbx">
+    <h2>countdown to New Year <br><span>20<i>23</i></span></h2>
+    <div class="countdown">
+        <div id="day">da</div>
+        <div id="hour">ho</div>
+        <div id="minute">mine</div>
+        <div id="second">secd</div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    const countDate = new Date('jan 1,2023 00:00:00').getTime();
+
+    function newYear(){
+      const now = new Date().getTime();
+      gap = countDate - now;
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute *60;
+      const day = hour * 24;
+
+      const d = Math.floor(gap/ (day));
+      const h = Math.floor((gap % (day)) / (hour));
+      const m = Math.floor((gap % (hour)) / (minute));
+      const s = Math.floor((gap % (minute)) / (second));
+
+      document.getElementById('day').innerHTML = d;
+      document.getElementById('hour').innerHTML = h;
+      document.getElementById('minute').innerHTML = m;
+      document.getElementById('second').innerHTML = s;
+    }
+      
+    setInterval(function(){
+      newYear();
+    },1000)
+  </script>
+</body>
+</html>
